@@ -52,3 +52,6 @@ name만 변경됨에 따라 UI가 변경이 되기에 User의 나이, 이메일,
 ```
 final name = ref.watch(userProvider.select((user) => user.name))
 ```
+---
+# Provider의 종류
+![alt text](providers.png)
