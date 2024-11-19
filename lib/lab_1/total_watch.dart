@@ -20,9 +20,6 @@ class TotalWatch extends ConsumerWidget {
 
     log(' 재빌드가 되면 이 문구가 떠요 ! - 비효율적인 코드를 증명 ');
 
-    // User 객체 전체가 아닌, 필요한 부분만 구독
-    // final name = ref.watch(userProvider.select((user) => user.name));
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('User example'),
