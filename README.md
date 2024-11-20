@@ -52,6 +52,22 @@ name만 변경됨에 따라 UI가 변경이 되기에 User의 나이, 이메일,
 ```
 final name = ref.watch(userProvider.select((user) => user.name))
 ```
+# Combine Provider(lib / lab_2 참고하기)
+생각 보다 간단한 내용임, lab_2를 보면 filtered_todo_list_provider -> 이 공급자가 filter_provider와 todo_list_provider를 가지고 와서 데이터를 가공한 이후 combine_watch.dart 파일에서 UI를 관리하니까 거기에 데이터를 뿌려주는 작업임
+2개의 공급자에게 접근할수있는 이유는 ref가 존재하기 때문에 가능함
+
+근데 여기서 중요한 개념이 한가지 등장함 
+유독 유심히 봐야하는 파일이 있는데 todo_list_provider.dart임
+StateNotiferProvider :  관리자 역할 (싱글톤으로 상태를 관리)
+StateNotifier : 상태를 변경, 삭제, 추가 하는 역할을 함(싱글톤으로 관리된 상태를 변경, 삭제, 추가하는 작업)
+
+진행하면서 특이한 코드
+```
+final todoList = ref.read(todoListProvider.notifier);
+-> 이 코드의 해석은 'todoListProvider가 관리하는 상태를 변경 및 추가, 삭제를 하고싶어'
+-> 그래서인지 todoList.addTodo, todoList.toggleCompleted ... 
+이런식으로 상태를 변경하는 메서드를 다 사용할수있음 (todo_list_provider.dart 참고)
+``` 
 ---
 # Provider의 종류
 ![alt text](providers.png)
