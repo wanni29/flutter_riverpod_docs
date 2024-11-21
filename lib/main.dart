@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_provider_lab/lab_1/part_watch.dart';
 import 'package:flutter_provider_lab/lab_1/total_watch.dart';
 import 'package:flutter_provider_lab/lab_2/combine_watch.dart';
+import 'package:flutter_provider_lab/lab_3/counter_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
@@ -21,7 +22,10 @@ class MyApp extends StatelessWidget {
       // home: PartWatch(),
 
       // lab_2 test case
-      home: TodoScreen(),
+      // home: TodoScreen(),
+
+      // lab_3 test case
+      home: CounterScreen(),
     );
   }
 }

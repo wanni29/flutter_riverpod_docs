@@ -68,6 +68,22 @@ final todoList = ref.read(todoListProvider.notifier);
 -> 그래서인지 todoList.addTodo, todoList.toggleCompleted ... 
 이런식으로 상태를 변경하는 메서드를 다 사용할수있음 (todo_list_provider.dart 참고)
 ``` 
+# Modifier(수식어 : family, autoDispose -> lib / lab_3 참고하기)
+_family 의 역할_ : 창고 관리자를 사용하게 될때에 매개변수를 받을수 있고,
+그 매개변수를 창고로 이동시켜서 내게 필요한 데이터로 재가공할수있다.
+(동적으로 값을 변경 시킬수있음)
+_autoDispose 의 역할_ : 창고 관리자가 더 이상 사용되어지지 않을때, 자원의 누유를 막도록 자동 삭제를 함 
+```
+final counterProvider =
+    StateNotifierProvider.autoDispose.family<CounterNotifier, Counter, String>(
+  (ref, messageId) {
+    ref.onDispose(() {
+      print('CounterProvider with messageId $messageId disposed');
+    });
+    return CounterNotifier(messageId);
+  },
+);
+```
 ---
 # Provider의 종류
 ![alt text](providers.png)
